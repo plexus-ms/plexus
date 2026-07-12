@@ -1,5 +1,8 @@
 monorepo_root = true
 
+[monorepo]
+config_roots = ["apps/*", "packages/*"]
+
 [tools]
 hk = "latest" # Git hooks
 biome = "latest" # formatter and linter
