@@ -24,7 +24,7 @@ COPY packages packages
 COPY apps/${APP} apps/${APP}
 RUN pnpm install --offline
 # Build
-RUN pnpm exec turbo run build --filter=${APP}
+RUN pnpm exec turbo run build --filter=./apps/${APP}
 
 # ── RUNTIME ─────────────────────────────────────────────────────────────────
 FROM node:${NODE_VERSION}-slim AS runner
