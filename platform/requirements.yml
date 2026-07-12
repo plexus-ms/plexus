@@ -1,0 +1,4 @@
+collections:
+  - name: https://github.com/plexus-ms/itops.git#/ansible/
+    type: git
+    version: v2

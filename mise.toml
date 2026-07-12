@@ -1,0 +1,72 @@
+[tools]
+hk = "latest" # Git hooks
+biome = "latest" # formatter and linter
+uv = "latest" # required for ansible and copier
+ansible = { version = "latest", uvx = true } # configuration management
+copier = { version = "latest", uvx = true } # template management
+
+[settings]
+# Install node from .node-version
+idiomatic_version_file_enable_tools = ["node"]
+
+[hooks]
+# Wire up Git hooks and get pnpm from packageManager
+postinstall = "hk install --mise && npx corepack enable"
+
+[env]
+# Command lines will be "turbo build" instead of "pnpm exec turbo build".
+_.path = ["{{config_root}}/node_modules/.bin"]
+
+
+# Contract verbs
+
+[tasks.dev]
+depends = ["install"]
+description = "Prepare a development environment and start it"
+usage = 'arg "[app]" help="App to start (defaults to all)"'
+run = 'turbo run dev ${usage_app:+--filter=$usage_app}'
+
+[tasks.verify]
+depends = ["lint", "check", "test"]
+description = "Perform all steps that verify code quality"
+
+[tasks.build]
+depends = ["install"]
+description = "Create production artifacts"
+usage = 'arg "[app]" help="App or package to build (defaults to all)"'
+run = 'turbo run build ${usage_app:+--filter=$usage_app}'
+
+# Propagation tasks
+
+[tasks.sync]
+description = "Update the project to the latest template version with Copier"
+run = "copier update --trust"
+
+# Internal / hidden tasks
+
+[tasks.install]
+description = "Install and wire up project dependencies"
+hide = true
+run = "pnpm install"
+sources = ["package.json", "apps/*/package.json", "packages/*/package.json", "pnpm-lock.yaml", "pnpm-workspace.yaml"]
+outputs = ["node_modules/.pnpm/lock.yaml"]
+
+[tasks.lint]
+description = "Lint and format the codebase"
+usage = '''
+flag "--write" help="Apply safe fixes and formatting in place"
+arg "<paths>" var=#true default="." help="Files or directories to lint (defaults to the whole repo)"
+'''
+run = "biome check ${usage_write:+--write} --no-errors-on-unmatched $usage_paths"
+
+[tasks.check]
+depends = ["install"]
+description = "Run static checks on the codebase"
+usage = 'arg "[package]" help="App or package to check (defaults to all)"'
+run = ['turbo run check ${usage_package:+--filter=$usage_package}']
+
+[tasks.test]
+depends = ["install"]
+description = "Run tests on the codebase"
+usage = 'arg "[package]" help="App or package to test (defaults to all)"'
+run = 'turbo run test ${usage_package:+--filter=$usage_package}'
