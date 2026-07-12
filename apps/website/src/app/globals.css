@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "@plexus-ms/brand/brand.css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Plexus brand palette (source of truth: @plexus-ms/brand). Raw values so
+     explicit dark: variants keep working alongside the --plx-* role tokens. */
+  --color-ink: #1b1d1a;
+  --color-ink-soft: #5c605a;
+  --color-paper: #f4f5f2;
+  --color-card: #ffffff;
+  --color-line: #d9dbd3;
+  --color-accent: #d9a400;
+  --color-accent-text: #8a6e00;
+  --color-accent-wash: #f8f3e0;
+  --color-dark: #20231e;
+  --color-dark-raised: #262a24;
+  --color-dark-paper: #f2f1ea;
+  --color-dark-soft: #a9aca2;
+  --color-dark-line: #3a3e38;
+  --color-dark-accent: #e9be3f;
+  --color-ok: #4c7d4e;
+  --color-warn: #c77d2e;
+  --color-crit: #b0402e;
+
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5rem;
+  --text-base: 1rem;
+  --text-base--line-height: 2rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 2rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2.5rem;
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 2.5rem;
+  --text-4xl: 2.5rem;
+  --text-4xl--line-height: 3rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 1;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 1;
+
+  --font-sans: var(--font-plex-sans);
+  --font-display: var(--font-plex-mono);
+  --font-mono: var(--font-plex-mono);
+
+  --container-8xl: 88rem;
+}
+
+/* Scrollable but without a visible scrollbar. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  [inert] ::-webkit-scrollbar {
+    display: none;
+  }
+}

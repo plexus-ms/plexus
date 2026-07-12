@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="t">
+  <!-- copy of @plexus-ms/brand assets/favicon.svg (source of truth) — Next.js requires a literal file in app/ -->
+  <title id="t">Plexus</title>
+  <style>@media (prefers-color-scheme: dark) { .s { stroke: #F2F1EA; } .r { stroke: #E9BE3F; } }</style>
+  <path d="M16 12 C19.31 14.07 21.93 16.56 24.16 19.31 M39.84 44.69 C42.07 47.44 44.69 49.93 48 52" stroke="#1B1D1A" stroke-width="9" stroke-linecap="round" class="s"/>
+  <path d="M48 12 C32 22 32 42 16 52" stroke="#1B1D1A" stroke-width="9" stroke-linecap="round" class="s r"/>
+</svg>
