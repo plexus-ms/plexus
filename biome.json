@@ -26,5 +26,13 @@
     "actions": {
       "recommended": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.generated.*"],
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ]
 }

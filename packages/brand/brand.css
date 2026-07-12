@@ -1,0 +1,51 @@
+/**
+ * Plexus brand tokens as CSS custom properties.
+ * Source of truth: src/tokens.ts (values mirrored here for CSS-only consumers).
+ *
+ * Two layers:
+ *   --plx-<name>  raw palette — constant, never flips with the color scheme
+ *   role tokens   (--plx-bg, --plx-fg, …) — flip under `.dark` (next-themes class strategy)
+ */
+:root {
+  /* raw palette */
+  --plx-ink: #1b1d1a;
+  --plx-ink-soft: #5c605a;
+  --plx-paper: #f4f5f2;
+  --plx-card: #ffffff;
+  --plx-line: #d9dbd3;
+  --plx-accent: #d9a400; /* nerve ochre — the event color, never the default */
+  --plx-accent-text: #8a6e00; /* ochre at AA contrast on white */
+  --plx-accent-wash: #f8f3e0;
+  --plx-dark: #20231e;
+  --plx-dark-raised: #262a24;
+  --plx-dark-paper: #f2f1ea;
+  --plx-dark-soft: #a9aca2;
+  --plx-dark-line: #3a3e38;
+  --plx-dark-accent: #e9be3f; /* ochre brightened one step for dark grounds */
+
+  /* semantic state — separate from the accent; warning is burnt orange
+     because the accent owns the yellow band */
+  --plx-ok: #4c7d4e;
+  --plx-warn: #c77d2e;
+  --plx-crit: #b0402e;
+
+  /* role tokens (light) */
+  --plx-bg: var(--plx-paper);
+  --plx-bg-raised: var(--plx-card);
+  --plx-fg: var(--plx-ink);
+  --plx-fg-soft: var(--plx-ink-soft);
+  --plx-hairline: var(--plx-line);
+  --plx-event: var(--plx-accent);
+  --plx-event-text: var(--plx-accent-text);
+}
+
+.dark {
+  /* role tokens (dark) */
+  --plx-bg: var(--plx-dark);
+  --plx-bg-raised: var(--plx-dark-raised);
+  --plx-fg: var(--plx-dark-paper);
+  --plx-fg-soft: var(--plx-dark-soft);
+  --plx-hairline: var(--plx-dark-line);
+  --plx-event: var(--plx-dark-accent);
+  --plx-event-text: var(--plx-dark-accent);
+}

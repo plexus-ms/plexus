@@ -1,0 +1,42 @@
+{
+  "name": "@plexus-ms/brand",
+  "version": "0.1.0",
+  "description": "The Plexus visual identity: mark assets, design tokens, and React components.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./brand.css": "./brand.css",
+    "./assets/*": "./assets/*"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "assets",
+    "brand.css"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate-assets.mjs",
+    "build": "node scripts/generate-assets.mjs && tsc",
+    "typecheck": "tsc --noEmit",
+    "prepack": "pnpm build"
+  },
+  "peerDependencies": {
+    "react": "^19"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "catalog:"
+  }
+}
