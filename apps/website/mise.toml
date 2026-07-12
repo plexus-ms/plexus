@@ -1,0 +1,3 @@
+[tasks.sync]
+description = "Update the project to the latest template version with Copier"
+run = "copier update --trust"
