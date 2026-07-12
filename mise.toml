@@ -1,3 +1,5 @@
+monorepo_root = true
+
 [tools]
 hk = "latest" # Git hooks
 biome = "latest" # formatter and linter
