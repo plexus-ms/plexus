@@ -29,3 +29,21 @@ jobs:
       host: plexus@ddb01.plexus-ms.org
     secrets:
       ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+  # Temporary second app verifying multi-app-per-host port binding (§ 5.4 PLX).
+  ci-my-app:
+    uses: plexus-ms/ci-cd/.github/workflows/ci.yml@v0.4
+    with:
+      app: my-app
+      build: ${{ github.event_name == 'push' }}
+
+  deploy-my-app:
+    needs: ci-my-app
+    if: github.ref == 'refs/heads/main'
+    uses: plexus-ms/ci-cd/.github/workflows/deploy.yml@v0.4
+    with:
+      app: my-app
+      image-ref: ${{ needs.ci-my-app.outputs.image-ref }}
+      host: plexus@ddb01.plexus-ms.org
+    secrets:
+      ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}

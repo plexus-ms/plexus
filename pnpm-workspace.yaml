@@ -3,6 +3,7 @@ packages:
   - "packages/*"
 allowBuilds:
   sharp: true
+  unrs-resolver: true
 catalog:
   typescript: ^6
 minimumReleaseAgeExclude:
