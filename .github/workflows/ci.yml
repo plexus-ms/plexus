@@ -13,7 +13,7 @@ jobs:
   # Check → test → build & push image.
   # The image is built only on pushs, not on PRs.
   ci:
-    uses: plexus-ms/ci-cd/.github/workflows/ci.yml@v0.2
+    uses: plexus-ms/ci-cd/.github/workflows/ci.yml@v0.3
     with:
       app: website
       build: ${{ github.event_name == 'push' }}
@@ -22,7 +22,7 @@ jobs:
   deploy:
     needs: ci
     if: github.ref == 'refs/heads/main'
-    uses: plexus-ms/ci-cd/.github/workflows/deploy.yml@v0.2
+    uses: plexus-ms/ci-cd/.github/workflows/deploy.yml@v0.3
     with:
       app: website
       image-ref: ${{ needs.ci.outputs.image-ref }}
