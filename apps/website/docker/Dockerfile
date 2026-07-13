@@ -45,4 +45,8 @@ COPY --from=builder --chown=node:node /repo/apps/${APP}/.next/static ./apps/${AP
 WORKDIR /repo/apps/${APP}
 USER node
 EXPOSE 3000
+# Next's standalone server binds to $HOSTNAME, which Docker sets to the
+# container ID — pin it so the server listens on all interfaces (incl.
+# loopback, where the compose healthcheck probes).
+ENV HOSTNAME=0.0.0.0
 ENTRYPOINT ["node", "server.js"]

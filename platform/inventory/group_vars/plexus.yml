@@ -21,6 +21,9 @@ plexus_apps:
     domain: stardust.plexus-ms.org
     image: ghcr.io/plexus/website:latest
     port: 3000
+    secrets:
+      REVALIDATE_TOKEN: "{{ lookup('community.general.onepassword', 'website-revalidate', field='credential', vault='plexus') }}"
+
 
 # Base packages the host needs
 plexus_base_packages:
