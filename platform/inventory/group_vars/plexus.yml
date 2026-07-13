@@ -18,8 +18,8 @@ plexus_up: true
 #     port: 3000
 plexus_apps:
   - name: website
-    domain: stardust.plexus-ms.org
-    image: ghcr.io/plexus/website:latest
+    domain: plexus-ms.org
+    image: ghcr.io/plexus-ms/website:0ed215b6e7ed1f294364798d4a4c546648e5a9db
     port: 3000
     secrets:
       REVALIDATE_TOKEN: "{{ lookup('community.general.onepassword', 'website-revalidate', field='credential', vault='plexus') }}"
