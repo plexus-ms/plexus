@@ -63,6 +63,9 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
     devDependencies:
+      '@plexus-ms/config':
+        specifier: ^0.2.0
+        version: 0.2.0
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.3.2
@@ -413,6 +416,9 @@ packages:
 
   '@plexus-ms/config@0.1.0':
     resolution: {integrity: sha512-+QSdHFgVK5pu3b27S9M6FdkFKEtlBOMeItE2sQo4n+a6CrhiRX5610Iu5IKHKi+grWbc7oJYVmt7RQD6byPIFA==}
+
+  '@plexus-ms/config@0.2.0':
+    resolution: {integrity: sha512-a8VDGgWqrA3BkAxo5cHwT2eYnRnsaN76P+AsWMKuCtrCNxOgx9Vji2j3pMf2hHFp1XFeFFjvnglfcDF2ygFJbQ==}
 
   '@plexus-ms/std@0.1.0':
     resolution: {integrity: sha512-/Iv6mw1CrdBV1VpSSk5Mk9UZqkBuivviwyZ5az0tZyprs5qjxeTIwBak16ypAFC55NkA9MbSwNlfl1loUopAKQ==}
@@ -1963,6 +1969,8 @@ snapshots:
     optional: true
 
   '@plexus-ms/config@0.1.0': {}
+
+  '@plexus-ms/config@0.2.0': {}
 
   '@plexus-ms/std@0.1.0':
     dependencies:
