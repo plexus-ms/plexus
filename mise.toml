@@ -28,8 +28,8 @@ _.path = ["{{config_root}}/node_modules/.bin"]
 [tasks.dev]
 depends = ["install"]
 description = "Prepare a development environment and start it"
-usage = 'arg "[app]" help="App to start (defaults to all)"'
-run = 'turbo run dev ${usage_app:+--filter=$usage_app}'
+usage = 'arg "[app]" help="App to start (e.g. my-app, defaults to all)"'
+run = 'turbo run dev ${usage_app:+--filter=./apps/$usage_app}'
 
 [tasks.verify]
 depends = ["lint", "check", "test"]
@@ -59,7 +59,6 @@ sources = ["package.json", "apps/*/package.json", "packages/*/package.json", "pn
 outputs = ["node_modules/.pnpm/lock.yaml"]
 
 [tasks.lint]
-# biome.json extends @plexus-ms/config from node_modules, so lint needs deps.
 depends = ["install"]
 description = "Lint and format the codebase"
 usage = '''
@@ -72,11 +71,11 @@ run = 'eval "set -- $usage_paths"; biome check ${usage_write:+--write} --no-erro
 [tasks.check]
 depends = ["install"]
 description = "Run static checks on the codebase"
-usage = 'arg "[package]" help="App or package to check (defaults to all)"'
-run = ['turbo run check ${usage_package:+--filter=$usage_package}']
+usage = 'arg "[package]" help="App or package to check (e.g. apps/my-app, defaults to all)"'
+run = ['turbo run check ${usage_package:+--filter=./$usage_package}']
 
 [tasks.test]
 depends = ["install"]
 description = "Run tests on the codebase"
-usage = 'arg "[package]" help="App or package to test (defaults to all)"'
-run = 'turbo run test ${usage_package:+--filter=$usage_package}'
+usage = 'arg "[package]" help="App or package to test (e.g. apps/my-app, defaults to all)"'
+run = 'turbo run test ${usage_package:+--filter=./$usage_package}'
