@@ -14,6 +14,9 @@ importers:
 
   .:
     devDependencies:
+      '@plexus-ms/config':
+        specifier: ^0.1.0
+        version: 0.1.0
       turbo:
         specifier: ^2
         version: 2.10.4
@@ -404,6 +407,9 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
+
+  '@plexus-ms/config@0.1.0':
+    resolution: {integrity: sha512-+QSdHFgVK5pu3b27S9M6FdkFKEtlBOMeItE2sQo4n+a6CrhiRX5610Iu5IKHKi+grWbc7oJYVmt7RQD6byPIFA==}
 
   '@plexus-ms/std@0.1.0':
     resolution: {integrity: sha512-/Iv6mw1CrdBV1VpSSk5Mk9UZqkBuivviwyZ5az0tZyprs5qjxeTIwBak16ypAFC55NkA9MbSwNlfl1loUopAKQ==}
@@ -1953,6 +1959,8 @@ snapshots:
 
   '@next/swc-win32-x64-msvc@16.2.9':
     optional: true
+
+  '@plexus-ms/config@0.1.0': {}
 
   '@plexus-ms/std@0.1.0':
     dependencies:

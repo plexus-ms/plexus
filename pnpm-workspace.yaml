@@ -5,3 +5,5 @@ allowBuilds:
   sharp: true
 catalog:
   typescript: ^6
+minimumReleaseAgeExclude:
+  - '@plexus-ms/config@0.1.0'
