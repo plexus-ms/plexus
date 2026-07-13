@@ -26,6 +26,6 @@ jobs:
     with:
       app: website
       image-ref: ${{ needs.ci.outputs.image-ref }}
-      host: plexus@stardust.plexus-ms.org
+      host: plexus@ddb01.plexus-ms.org
     secrets:
       ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
