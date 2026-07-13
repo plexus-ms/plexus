@@ -21,11 +21,6 @@ plexus_apps:
     domain: plexus-ms.org
     image: ghcr.io/plexus-ms/website:0ed215b6e7ed1f294364798d4a4c546648e5a9db
     port: 3000
-  # Temporary second app verifying multi-app-per-host port binding (§ 5.4 PLX).
-  - name: my-app
-    domain: ddb01.plexus-ms.org
-    image: ghcr.io/plexus-ms/my-app:latest # no image yet; first bring-up via CI deploy
-    port: 3001
     secrets:
       REVALIDATE_TOKEN: "{{ lookup('community.general.onepassword', 'website-revalidate', field='credential', vault='plexus') }}"
 
