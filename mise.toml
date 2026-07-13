@@ -41,6 +41,14 @@ description = "Create production artifacts"
 usage = 'arg "[app]" help="App or package to build (defaults to all)"'
 run = 'turbo run build ${usage_app:+--filter=$usage_app}'
 
+[tasks.platform]
+description = "Run the operations platform playbook"
+dir = "platform"
+run = [
+    'ansible-galaxy collection install -r requirements.yml',
+    './ansible-playbookw platform.yml',
+]
+
 # Propagation tasks
 
 [tasks.sync]
