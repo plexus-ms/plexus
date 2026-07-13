@@ -1,4 +1,4 @@
 collections:
-  - name: https://github.com/plexus-ms/itops.git#/ansible/
+  - name: https://github.com/plexus-ms/platform.git#/ansible/
     type: git
-    version: v0.5
+    version: v0.7

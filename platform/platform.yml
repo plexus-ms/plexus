@@ -8,7 +8,7 @@
   hosts: plexus
   become: true
   roles:
-    - plexus.itops.base
-    - plexus.itops.docker
-    - plexus.itops.caddy
-    - plexus.itops.deploy
+    - plexus.platform.base
+    - plexus.platform.docker
+    - plexus.platform.caddy
+    - plexus.platform.deploy
