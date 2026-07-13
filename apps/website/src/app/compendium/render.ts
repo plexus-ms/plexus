@@ -10,6 +10,9 @@ export interface DocFrontmatter {
   title?: string;
   short_title?: string;
   description?: string;
+  version?: string;
+  timestamp?: string;
+  authors?: string | string[];
 }
 
 export interface DocHeading {

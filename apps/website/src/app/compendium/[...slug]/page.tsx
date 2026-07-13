@@ -36,6 +36,20 @@ export default async function DocPage({ params }: Props) {
   ]);
   const href = `/compendium/${doc.slug.join('/')}`;
   const section = sections.find((s) => s.items.some((item) => item.href === href));
+  const authors = [frontmatter.authors].flat().filter(Boolean) as string[];
+  const byline =
+    authors.length === 0
+      ? undefined
+      : authors.length === 1
+        ? `By ${authors[0]}`
+        : authors.length === 2
+          ? `By ${authors[0]} and ${authors[1]}`
+          : `By ${authors.slice(0, -1).join(', ')}, and ${authors[authors.length - 1]}`;
+  const meta = [
+    frontmatter.version && `Version ${frontmatter.version}`,
+    frontmatter.timestamp && `Updated ${frontmatter.timestamp}`,
+    byline,
+  ].filter(Boolean);
 
   return (
     <>
@@ -50,6 +64,7 @@ export default async function DocPage({ params }: Props) {
             <h1 className="font-display text-3xl font-bold tracking-tight text-ink dark:text-dark-paper">
               {frontmatter.title}
             </h1>
+            {meta.length > 0 && <p className="text-sm text-ink-soft dark:text-dark-soft">{meta.join(' · ')}</p>}
           </header>
           <Prose>{content}</Prose>
         </article>
