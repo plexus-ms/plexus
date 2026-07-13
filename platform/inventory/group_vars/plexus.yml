@@ -19,7 +19,7 @@ plexus_up: true
 plexus_apps:
   - name: website
     domain: plexus-ms.org
-    image: ghcr.io/plexus-ms/website:ec0873891016469810a0bffe1e49a6382d37b889
+    image: ghcr.io/plexus-ms/website:3d9d14ceb41cac4011951d0022a35b79610c318c
     port: 3000
     secrets:
       REVALIDATE_TOKEN: "{{ lookup('community.general.onepassword', 'website-revalidate', field='credential', vault='plexus') }}"
