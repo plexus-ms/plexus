@@ -12,7 +12,7 @@ this package is the machine-readable source of truth for assets.
 | `@plexus-ms/brand` | Tokens (`colors`, `fonts`, `typeScale`, `wordmark`) and the generated mark geometry. |
 | `@plexus-ms/brand/react` | `<Mark/>`, `<Wordmark/>`, `<BraidBand/>` (React 19 peer, optional). |
 | `@plexus-ms/brand/brand.css` | All tokens as `--plx-*` custom properties, with `.dark` role-token overrides. |
-| `@plexus-ms/brand/assets/*` | Standalone SVGs: `mark`, `mark-small`, `mark-twotone`, `mark-dark`, `favicon`, `braid-band`. |
+| `@plexus-ms/brand/assets/*` | Standalone SVGs: `mark`, `mark-small`, `mark-twotone`, `mark-dark`, `favicon`, `avatar`, `braid-band`; plus `avatar.png` (1024×1024). |
 
 ## Construction
 
@@ -22,6 +22,12 @@ Every asset derives from one set of geometry constants in
 the marks work on any background — no ground-colored halo tricks. The script
 emits both the SVG files and `src/geometry.generated.ts`, so the React
 components render the exact same paths: decide once, propagate.
+
+The one raster in the set is `assets/avatar.png` — the GitHub org profile
+picture, which cannot be an SVG. It is rendered from `assets/avatar.svg` via
+[`sharp`](https://sharp.pixelplumbing.com) in the same script, so it never
+drifts from the source. To refresh the org avatar, run `pnpm generate` and
+upload `assets/avatar.png` under **Organization → Settings → Profile picture**.
 
 Regenerate after changing geometry:
 
