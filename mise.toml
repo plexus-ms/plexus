@@ -35,12 +35,6 @@ run = 'turbo run dev ${usage_app:+--filter=$usage_app}'
 depends = ["lint", "check", "test"]
 description = "Perform all steps that verify code quality"
 
-[tasks.build]
-depends = ["install"]
-description = "Create production artifacts"
-usage = 'arg "[app]" help="App or package to build (defaults to all)"'
-run = 'turbo run build ${usage_app:+--filter=$usage_app}'
-
 [tasks.platform]
 description = "Run the operations platform playbook"
 dir = "platform"
