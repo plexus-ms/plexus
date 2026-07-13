@@ -66,7 +66,8 @@ usage = '''
 flag "--write" help="Apply safe fixes and formatting in place"
 arg "<paths>" var=#true default="." help="Files or directories to lint (defaults to the whole repo)"
 '''
-run = "biome check ${usage_write:+--write} --no-errors-on-unmatched $usage_paths"
+# usage shell-quotes var-arg values, so re-parse them via eval instead of bare expansion.
+run = 'eval "set -- $usage_paths"; biome check ${usage_write:+--write} --no-errors-on-unmatched "$@"'
 
 [tasks.check]
 depends = ["install"]
