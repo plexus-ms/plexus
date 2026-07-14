@@ -24,7 +24,7 @@
   "scripts": {
     "generate": "node scripts/generate-assets.mjs",
     "build": "node scripts/generate-assets.mjs && tsc",
-    "typecheck": "tsc --noEmit",
+    "check": "tsc --noEmit",
     "prepack": "pnpm build"
   },
   "peerDependencies": {
